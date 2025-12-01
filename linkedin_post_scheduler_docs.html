@@ -1,0 +1,29 @@
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;LinkedIn Post Scheduler API Documentation&lt;/title&gt;
+    &lt;script src="https://cdn.tailwindcss.com?plugins=typography"&gt;&lt;/script&gt;
+    &lt;script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"&gt;&lt;/script&gt;
+    &lt;style&gt;
+        .markdown-body { max-width: none; }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body class="bg-white"&gt;
+    &lt;nav class="bg-primary-600 text-white p-4"&gt;
+        &lt;div class="max-w-7xl mx-auto flex justify-between items-center"&gt;
+            &lt;a href="index.html" class="text-xl font-bold"&gt;LinkedIn Scheduler API&lt;/a&gt;
+            &lt;a href="index.html" class="hover:underline"&gt;Back to Home&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/nav&gt;
+    &lt;div id="docs-content" class="prose prose-lg max-w-none py-8 px-4 md:px-8"&gt;&lt;/div&gt;
+    &lt;script&gt;
+        fetch('linkedin_post_scheduler_docs.md')
+            .then(response =&gt; response.text())
+            .then(data =&gt; {
+                document.getElementById('docs-content').innerHTML = marked.parse(data);
+            });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
