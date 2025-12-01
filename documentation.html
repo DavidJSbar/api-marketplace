@@ -1,0 +1,720 @@
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;API Documentation - Specialized Data Intelligence API Marketplace&lt;/title&gt;
+    &lt;meta name="description" content="Comprehensive API documentation for construction permit data, business sentiment analysis, and niche market sizing. Includes authentication, endpoints, and examples."&gt;
+    &lt;meta name="keywords" content="API documentation, construction permit API, business sentiment API, market sizing API, data intelligence endpoints, developer API guide"&gt;
+    &lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
+    &lt;link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet"&gt;
+    &lt;link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top"&gt;
+        &lt;div class="container"&gt;
+            &lt;a class="navbar-brand" href="index.html"&gt;DataIntel API Marketplace&lt;/a&gt;
+            &lt;button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"&gt;
+                &lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;
+            &lt;/button&gt;
+            &lt;div class="collapse navbar-collapse" id="navbarNav"&gt;
+                &lt;ul class="navbar-nav ms-auto"&gt;
+                    &lt;li class="nav-item"&gt;&lt;a class="nav-link" href="index.html"&gt;Home&lt;/a&gt;&lt;/li&gt;
+                    &lt;li class="nav-item"&gt;&lt;a class="nav-link active" href="documentation.html"&gt;Documentation&lt;/a&gt;&lt;/li&gt;
+                    &lt;li class="nav-item"&gt;&lt;a class="nav-link" href="blog.html"&gt;Blog&lt;/a&gt;&lt;/li&gt;
+                    &lt;li class="nav-item"&gt;&lt;a class="nav-link" href="pricing.html"&gt;Pricing&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/nav&gt;
+
+    &lt;header class="bg-primary text-white text-center py-5 mt-5"&gt;
+        &lt;div class="container"&gt;
+            &lt;h1 class="display-4"&gt;API Documentation&lt;/h1&gt;
+            &lt;p class="lead"&gt;Version 1.0 | Last Updated: December 2025&lt;/p&gt;
+            &lt;p&gt;Access real-time construction permit data across 50+ US cities through a simple, developer-friendly REST API.&lt;/p&gt;
+            &lt;a href="#quickstart" class="btn btn-light"&gt;Quick Start&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/header&gt;
+
+    &lt;main class="container my-5"&gt;
+        &lt;section id="welcome"&gt;
+            &lt;h2&gt;Welcome to the Construction Permit Data API&lt;/h2&gt;
+            &lt;p&gt;Get instant access to permit applications, approvals, valuations, and project details that power market intelligence, competitive analysis, and business development workflows.&lt;/p&gt;
+            &lt;h3&gt;Why Construction Permit Data?&lt;/h3&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;strong&gt;Real-time market intelligence:&lt;/strong&gt; Track construction activity as it happens, not months later&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;Competitive insights:&lt;/strong&gt; Monitor competitor expansion and market entry strategies&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;Lead generation:&lt;/strong&gt; Identify businesses investing in infrastructure before they go to market&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;Market sizing:&lt;/strong&gt; Quantify construction spending and activity trends by geography and sector&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;Compliance tracking:&lt;/strong&gt; Stay informed on regulatory changes and permit approval patterns&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;h3&gt;Unique Value Proposition&lt;/h3&gt;
+            &lt;p&gt;Unlike static datasets or enterprise-only solutions, our API delivers:&lt;/p&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;strong&gt;Daily updates&lt;/strong&gt; - Fresh data synchronized every 24 hours&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;City-level granularity&lt;/strong&gt; - 50+ major US cities with expanding coverage&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;Enriched records&lt;/strong&gt; - Cleaned, validated, and enhanced with additional business context&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;Developer-first&lt;/strong&gt; - RESTful design, JSON responses, comprehensive documentation&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;Usage-based pricing&lt;/strong&gt; - Pay only for what you use, no enterprise minimums&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/section&gt;
+
+        &lt;section id="quickstart"&gt;
+            &lt;h2&gt;Quick Start&lt;/h2&gt;
+            &lt;h3&gt;1. Get Your API Key&lt;/h3&gt;
+            &lt;p&gt;Sign up at &lt;a href="#signup"&gt;the signup page&lt;/a&gt; to receive your API key instantly. Free tier includes 100 API calls per month.&lt;/p&gt;
+            &lt;h3&gt;2. Make Your First Request&lt;/h3&gt;
+            &lt;pre&gt;&lt;code class="language-bash"&gt;curl -X GET "https://api.dataintel.market/v1/permits/san-francisco?limit=10" \
+  -H "Authorization: Bearer YOUR_API_KEY"&lt;/code&gt;&lt;/pre&gt;
+            &lt;h3&gt;3. Integrate in Minutes&lt;/h3&gt;
+            &lt;pre&gt;&lt;code class="language-javascript"&gt;// Node.js Example
+const axios = require('axios');
+
+const API_KEY = 'your_api_key_here';
+const BASE_URL = 'https://api.dataintel.market/v1';
+
+async function getPermits(city) {
+  const response = await axios.get(`${BASE_URL}/permits/${city}`, {
+    headers: { 'Authorization': `Bearer ${API_KEY}` }
+  });
+  return response.data;
+}
+
+getPermits('san-francisco')
+  .then(data =&gt; console.log(data))
+  .catch(error =&gt; console.error(error));&lt;/code&gt;&lt;/pre&gt;
+        &lt;/section&gt;
+
+        &lt;section id="authentication"&gt;
+            &lt;h2&gt;Authentication&lt;/h2&gt;
+            &lt;p&gt;All API requests require authentication via API key passed in the &lt;code&gt;Authorization&lt;/code&gt; header.&lt;/p&gt;
+            &lt;h3&gt;Header Format&lt;/h3&gt;
+            &lt;pre&gt;&lt;code&gt;Authorization: Bearer YOUR_API_KEY&lt;/code&gt;&lt;/pre&gt;
+            &lt;h3&gt;Security Best Practices&lt;/h3&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;strong&gt;Never expose API keys&lt;/strong&gt; in client-side code or public repositories&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;Rotate keys regularly&lt;/strong&gt; through the dashboard (recommended: every 90 days)&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;Use environment variables&lt;/strong&gt; to store keys in production applications&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;Monitor usage&lt;/strong&gt; via the dashboard to detect unauthorized access&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;h3&gt;Error Responses&lt;/h3&gt;
+            &lt;table class="table table-striped"&gt;
+                &lt;thead&gt;
+                    &lt;tr&gt;
+                        &lt;th&gt;Status Code&lt;/th&gt;
+                        &lt;th&gt;Error Type&lt;/th&gt;
+                        &lt;th&gt;Description&lt;/th&gt;
+                    &lt;/tr&gt;
+                &lt;/thead&gt;
+                &lt;tbody&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;401&lt;/td&gt;
+                        &lt;td&gt;Unauthorized&lt;/td&gt;
+                        &lt;td&gt;Missing or invalid API key&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;403&lt;/td&gt;
+                        &lt;td&gt;Forbidden&lt;/td&gt;
+                        &lt;td&gt;API key valid but lacks permission for resource&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;429&lt;/td&gt;
+                        &lt;td&gt;Rate Limit Exceeded&lt;/td&gt;
+                        &lt;td&gt;Too many requests (see Rate Limits section)&lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/tbody&gt;
+            &lt;/table&gt;
+            &lt;h3&gt;Example Error Response&lt;/h3&gt;
+            &lt;pre&gt;&lt;code class="language-json"&gt;{
+  "error": {
+    "code": "unauthorized",
+    "message": "Invalid API key provided",
+    "documentation_url": "https://docs.dataintel.market/authentication"
+  }
+}&lt;/code&gt;&lt;/pre&gt;
+        &lt;/section&gt;
+
+        &lt;section id="rate-limits"&gt;
+            &lt;h2&gt;Rate Limits&lt;/h2&gt;
+            &lt;p&gt;Rate limits are applied per API key to ensure fair usage and system stability.&lt;/p&gt;
+            &lt;h3&gt;Tier-Based Limits&lt;/h3&gt;
+            &lt;table class="table table-striped"&gt;
+                &lt;thead&gt;
+                    &lt;tr&gt;
+                        &lt;th&gt;Tier&lt;/th&gt;
+                        &lt;th&gt;Requests/Minute&lt;/th&gt;
+                        &lt;th&gt;Requests/Month&lt;/th&gt;
+                        &lt;th&gt;Price&lt;/th&gt;
+                    &lt;/tr&gt;
+                &lt;/thead&gt;
+                &lt;tbody&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;&lt;strong&gt;Free&lt;/strong&gt;&lt;/td&gt;
+                        &lt;td&gt;10&lt;/td&gt;
+                        &lt;td&gt;100&lt;/td&gt;
+                        &lt;td&gt;$0&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;&lt;strong&gt;Starter&lt;/strong&gt;&lt;/td&gt;
+                        &lt;td&gt;60&lt;/td&gt;
+                        &lt;td&gt;10,000&lt;/td&gt;
+                        &lt;td&gt;$99/month&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;&lt;strong&gt;Professional&lt;/strong&gt;&lt;/td&gt;
+                        &lt;td&gt;300&lt;/td&gt;
+                        &lt;td&gt;100,000&lt;/td&gt;
+                        &lt;td&gt;$299/month&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;&lt;strong&gt;Enterprise&lt;/strong&gt;&lt;/td&gt;
+                        &lt;td&gt;Custom&lt;/td&gt;
+                        &lt;td&gt;Custom&lt;/td&gt;
+                        &lt;td&gt;Contact us&lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/tbody&gt;
+            &lt;/table&gt;
+            &lt;h3&gt;Rate Limit Headers&lt;/h3&gt;
+            &lt;p&gt;Every API response includes rate limit information:&lt;/p&gt;
+            &lt;pre&gt;&lt;code&gt;X-RateLimit-Limit: 60
+X-RateLimit-Remaining: 45
+X-RateLimit-Reset: 1701453600&lt;/code&gt;&lt;/pre&gt;
+            &lt;h3&gt;Handling Rate Limits&lt;/h3&gt;
+            &lt;p&gt;When rate limit is exceeded, the API returns &lt;code&gt;429 Too Many Requests&lt;/code&gt;:&lt;/p&gt;
+            &lt;pre&gt;&lt;code class="language-json"&gt;{
+  "error": {
+    "code": "rate_limit_exceeded",
+    "message": "Rate limit exceeded. Retry after 45 seconds.",
+    "retry_after": 45
+  }
+}&lt;/code&gt;&lt;/pre&gt;
+            &lt;p&gt;&lt;strong&gt;Best Practice:&lt;/strong&gt; Implement exponential backoff and respect the &lt;code&gt;retry_after&lt;/code&gt; value.&lt;/p&gt;
+        &lt;/section&gt;
+
+        &lt;section id="endpoints"&gt;
+            &lt;h2&gt;API Endpoints&lt;/h2&gt;
+            &lt;h3&gt;Base URL&lt;/h3&gt;
+            &lt;pre&gt;&lt;code&gt;https://api.dataintel.market/v1&lt;/code&gt;&lt;/pre&gt;
+            &lt;p&gt;All endpoints return JSON responses and support standard HTTP methods.&lt;/p&gt;
+
+            &lt;h3&gt;1. Get Permits by City&lt;/h3&gt;
+            &lt;p&gt;&lt;strong&gt;Endpoint:&lt;/strong&gt; &lt;code&gt;GET /permits/{city}&lt;/code&gt;&lt;/p&gt;
+            &lt;h4&gt;Path Parameters&lt;/h4&gt;
+            &lt;table class="table table-striped"&gt;
+                &lt;thead&gt;
+                    &lt;tr&gt;
+                        &lt;th&gt;Parameter&lt;/th&gt;
+                        &lt;th&gt;Type&lt;/th&gt;
+                        &lt;th&gt;Required&lt;/th&gt;
+                        &lt;th&gt;Description&lt;/th&gt;
+                    &lt;/tr&gt;
+                &lt;/thead&gt;
+                &lt;tbody&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;&lt;code&gt;city&lt;/code&gt;&lt;/td&gt;
+                        &lt;td&gt;string&lt;/td&gt;
+                        &lt;td&gt;Yes&lt;/td&gt;
+                        &lt;td&gt;City identifier (lowercase, hyphenated)&lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/tbody&gt;
+            &lt;/table&gt;
+            &lt;h4&gt;Query Parameters&lt;/h4&gt;
+            &lt;table class="table table-striped"&gt;
+                &lt;thead&gt;
+                    &lt;tr&gt;
+                        &lt;th&gt;Parameter&lt;/th&gt;
+                        &lt;th&gt;Type&lt;/th&gt;
+                        &lt;th&gt;Default&lt;/th&gt;
+                        &lt;th&gt;Description&lt;/th&gt;
+                    &lt;/tr&gt;
+                &lt;/thead&gt;
+                &lt;tbody&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;&lt;code&gt;limit&lt;/code&gt;&lt;/td&gt;
+                        &lt;td&gt;integer&lt;/td&gt;
+                        &lt;td&gt;20&lt;/td&gt;
+                        &lt;td&gt;Number of results to return (max: 100)&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;&lt;code&gt;offset&lt;/code&gt;&lt;/td&gt;
+                        &lt;td&gt;integer&lt;/td&gt;
+                        &lt;td&gt;0&lt;/td&gt;
+                        &lt;td&gt;Pagination offset&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;&lt;code&gt;start_date&lt;/code&gt;&lt;/td&gt;
+                        &lt;td&gt;string&lt;/td&gt;
+                        &lt;td&gt;30 days ago&lt;/td&gt;
+                        &lt;td&gt;Filter by permit issue date (ISO 8601: YYYY-MM-DD)&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;&lt;code&gt;end_date&lt;/code&gt;&lt;/td&gt;
+                        &lt;td&gt;string&lt;/td&gt;
+                        &lt;td&gt;today&lt;/td&gt;
+                        &lt;td&gt;Filter by permit issue date (ISO 8601: YYYY-MM-DD)&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;&lt;code&gt;permit_type&lt;/code&gt;&lt;/td&gt;
+                        &lt;td&gt;string&lt;/td&gt;
+                        &lt;td&gt;all&lt;/td&gt;
+                        &lt;td&gt;Filter by permit type: residential, commercial, industrial, demolition&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;&lt;code&gt;min_value&lt;/code&gt;&lt;/td&gt;
+                        &lt;td&gt;integer&lt;/td&gt;
+                        &lt;td&gt;0&lt;/td&gt;
+                        &lt;td&gt;Minimum project valuation in USD&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;&lt;code&gt;max_value&lt;/code&gt;&lt;/td&gt;
+                        &lt;td&gt;integer&lt;/td&gt;
+                        &lt;td&gt;none&lt;/td&gt;
+                        &lt;td&gt;Maximum project valuation in USD&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;&lt;code&gt;status&lt;/code&gt;&lt;/td&gt;
+                        &lt;td&gt;string&lt;/td&gt;
+                        &lt;td&gt;all&lt;/td&gt;
+                        &lt;td&gt;Filter by status: applied, approved, issued, completed, expired&lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/tbody&gt;
+            &lt;/table&gt;
+            &lt;h4&gt;Example Request&lt;/h4&gt;
+            &lt;pre&gt;&lt;code class="language-bash"&gt;curl -X GET "https://api.dataintel.market/v1/permits/san-francisco?limit=5&amp;permit_type=commercial&amp;min_value=500000" \
+  -H "Authorization: Bearer YOUR_API_KEY"&lt;/code&gt;&lt;/pre&gt;
+            &lt;h4&gt;Example Response&lt;/h4&gt;
+            &lt;pre&gt;&lt;code class="language-json"&gt;{
+  "data": [
+    {
+      "id": "SF-2025-00234",
+      "permit_number": "2025-0234-COM",
+      "city": "san-francisco",
+      "status": "issued",
+      "permit_type": "commercial",
+      "issue_date": "2025-11-28",
+      "expiration_date": "2026-11-28",
+      "project_description": "Interior tenant improvement for office space",
+      "address": {
+        "street": "123 Market Street",
+        "city": "San Francisco",
+        "state": "CA",
+        "zip": "94103",
+        "coordinates": {
+          "latitude": 37.7749,
+          "longitude": -122.4194
+        }
+      },
+      "applicant": {
+        "name": "ABC Construction Inc.",
+        "type": "contractor",
+        "license_number": "CA-123456"
+      },
+      "owner": {
+        "name": "XYZ Properties LLC",
+        "type": "property_owner"
+      },
+      "valuation": {
+        "amount": 750000,
+        "currency": "USD"
+      },
+      "project_details": {
+        "square_footage": 5000,
+        "stories": 1,
+        "units": null
+      },
+      "metadata": {
+        "data_source": "San Francisco Department of Building Inspection",
+        "last_updated": "2025-11-29T08:15:00Z",
+        "confidence_score": 0.98
+      }
+    }
+  ],
+  "pagination": {
+    "total": 847,
+    "limit": 5,
+    "offset": 0,
+    "has_more": true
+  },
+  "meta": {
+    "request_id": "req_abc123xyz",
+    "processing_time_ms": 145
+  }
+}&lt;/code&gt;&lt;/pre&gt;
+
+            &lt;h3&gt;2. Get Single Permit Details&lt;/h3&gt;
+            &lt;p&gt;&lt;strong&gt;Endpoint:&lt;/strong&gt; &lt;code&gt;GET /permits/{city}/{permit_id}&lt;/code&gt;&lt;/p&gt;
+            &lt;h4&gt;Path Parameters&lt;/h4&gt;
+            &lt;table class="table table-striped"&gt;
+                &lt;thead&gt;
+                    &lt;tr&gt;
+                        &lt;th&gt;Parameter&lt;/th&gt;
+                        &lt;th&gt;Type&lt;/th&gt;
+                        &lt;th&gt;Required&lt;/th&gt;
+                        &lt;th&gt;Description&lt;/th&gt;
+                    &lt;/tr&gt;
+                &lt;/thead&gt;
+                &lt;tbody&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;&lt;code&gt;city&lt;/code&gt;&lt;/td&gt;
+                        &lt;td&gt;string&lt;/td&gt;
+                        &lt;td&gt;Yes&lt;/td&gt;
+                        &lt;td&gt;City identifier&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;&lt;code&gt;permit_id&lt;/code&gt;&lt;/td&gt;
+                        &lt;td&gt;string&lt;/td&gt;
+                        &lt;td&gt;Yes&lt;/td&gt;
+                        &lt;td&gt;Unique permit identifier&lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/tbody&gt;
+            &lt;/table&gt;
+            &lt;h4&gt;Example Request&lt;/h4&gt;
+            &lt;pre&gt;&lt;code class="language-bash"&gt;curl -X GET "https://api.dataintel.market/v1/permits/san-francisco/SF-2025-00234" \
+  -H "Authorization: Bearer YOUR_API_KEY"&lt;/code&gt;&lt;/pre&gt;
+            &lt;h4&gt;Example Response&lt;/h4&gt;
+            &lt;pre&gt;&lt;code class="language-json"&gt;{
+  "data": {
+    "id": "SF-2025-00234",
+    "permit_number": "2025-0234-COM",
+    "city": "san-francisco",
+    "status": "issued",
+    "permit_type": "commercial",
+    "issue_date": "2025-11-28",
+    "expiration_date": "2026-11-28",
+    "application_date": "2025-10-15",
+    "approval_date": "2025-11-20",
+    "project_description": "Interior tenant improvement for office space",
+    "address": {
+      "street": "123 Market Street",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "94103",
+      "coordinates": {
+        "latitude": 37.7749,
+        "longitude": -122.4194
+      }
+    },
+    "applicant": {
+      "name": "ABC Construction Inc.",
+      "type": "contractor",
+      "license_number": "CA-123456",
+      "contact_phone": "(415) 555-0100",
+      "contact_email": "permits@abcconstruction.com"
+    },
+    "owner": {
+      "name": "XYZ Properties LLC",
+      "type": "property_owner",
+      "contact_phone": "(415) 555-0200"
+    },
+    "valuation": {
+      "amount": 750000,
+      "currency": "USD"
+    },
+    "project_details": {
+      "square_footage": 5000,
+      "stories": 1,
+      "units": null,
+      "use_type": "office",
+      "construction_type": "type_v_wood_frame"
+    },
+    "inspections": [
+      {
+        "type": "foundation",
+        "scheduled_date": "2025-12-05",
+        "status": "scheduled"
+      },
+      {
+        "type": "framing",
+        "scheduled_date": null,
+        "status": "pending"
+      }
+    ],
+    "fees": {
+      "permit_fee": 8500,
+      "plan_review_fee": 3200,
+      "total_paid": 11700,
+      "currency": "USD"
+    },
+    "metadata": {
+      "data_source": "San Francisco Department of Building Inspection",
+      "last_updated": "2025-11-29T08:15:00Z",
+      "confidence_score": 0.98,
+      "enrichment_status": "complete"
+    }
+  },
+  "meta": {
+    "request_id": "req_def456uvw",
+    "processing_time_ms": 87
+  }
+}&lt;/code&gt;&lt;/pre&gt;
+
+            &lt;h3&gt;3. Search Permits&lt;/h3&gt;
+            &lt;p&gt;&lt;strong&gt;Endpoint:&lt;/strong&gt; &lt;code&gt;GET /permits/search&lt;/code&gt;&lt;/p&gt;
+            &lt;h4&gt;Query Parameters&lt;/h4&gt;
+            &lt;table class="table table-striped"&gt;
+                &lt;thead&gt;
+                    &lt;tr&gt;
+                        &lt;th&gt;Parameter&lt;/th&gt;
+                        &lt;th&gt;Type&lt;/th&gt;
+                        &lt;th&gt;Default&lt;/th&gt;
+                        &lt;th&gt;Description&lt;/th&gt;
+                    &lt;/tr&gt;
+                &lt;/thead&gt;
+                &lt;tbody&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;&lt;code&gt;q&lt;/code&gt;&lt;/td&gt;
+                        &lt;td&gt;string&lt;/td&gt;
+                        &lt;td&gt;required&lt;/td&gt;
+                        &lt;td&gt;Search query (searches across description, address, applicant name)&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;&lt;code&gt;cities&lt;/code&gt;&lt;/td&gt;
+                        &lt;td&gt;string&lt;/td&gt;
+                        &lt;td&gt;all&lt;/td&gt;
+                        &lt;td&gt;Comma-separated list of city identifiers&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;&lt;code&gt;limit&lt;/code&gt;&lt;/td&gt;
+                        &lt;td&gt;integer&lt;/td&gt;
+                        &lt;td&gt;20&lt;/td&gt;
+                        &lt;td&gt;Number of results (max: 100)&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;&lt;code&gt;offset&lt;/code&gt;&lt;/td&gt;
+                        &lt;td&gt;integer&lt;/td&gt;
+                        &lt;td&gt;0&lt;/td&gt;
+                        &lt;td&gt;Pagination offset&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;&lt;code&gt;start_date&lt;/code&gt;&lt;/td&gt;
+                        &lt;td&gt;string&lt;/td&gt;
+                        &lt;td&gt;90 days ago&lt;/td&gt;
+                        &lt;td&gt;Filter by issue date&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;&lt;code&gt;end_date&lt;/code&gt;&lt;/td&gt;
+                        &lt;td&gt;string&lt;/td&gt;
+                        &lt;td&gt;today&lt;/td&gt;
+                        &lt;td&gt;Filter by issue date&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;&lt;code&gt;permit_type&lt;/code&gt;&lt;/td&gt;
+                        &lt;td&gt;string&lt;/td&gt;
+                        &lt;td&gt;all&lt;/td&gt;
+                        &lt;td&gt;Filter by permit type&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;&lt;code&gt;min_value&lt;/code&gt;&lt;/td&gt;
+                        &lt;td&gt;integer&lt;/td&gt;
+                        &lt;td&gt;0&lt;/td&gt;
+                        &lt;td&gt;Minimum valuation&lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/tbody&gt;
+            &lt;/table&gt;
+            &lt;h4&gt;Example Request&lt;/h4&gt;
+            &lt;pre&gt;&lt;code class="language-bash"&gt;curl -X GET "https://api.dataintel.market/v1/permits/search?q=office+renovation&amp;cities=san-francisco,oakland&amp;min_value=100000" \
+  -H "Authorization: Bearer YOUR_API_KEY"&lt;/code&gt;&lt;/pre&gt;
+
+            &lt;h3&gt;4. Get City Statistics&lt;/h3&gt;
+            &lt;p&gt;&lt;strong&gt;Endpoint:&lt;/strong&gt; &lt;code&gt;GET /permits/{city}/stats&lt;/code&gt;&lt;/p&gt;
+            &lt;h4&gt;Path Parameters&lt;/h4&gt;
+            &lt;table class="table table-striped"&gt;
+                &lt;thead&gt;
+                    &lt;tr&gt;
+                        &lt;th&gt;Parameter&lt;/th&gt;
+                        &lt;th&gt;Type&lt;/th&gt;
+                        &lt;th&gt;Required&lt;/th&gt;
+                        &lt;th&gt;Description&lt;/th&gt;
+                    &lt;/tr&gt;
+                &lt;/thead&gt;
+                &lt;tbody&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;&lt;code&gt;city&lt;/code&gt;&lt;/td&gt;
+                        &lt;td&gt;string&lt;/td&gt;
+                        &lt;td&gt;Yes&lt;/td&gt;
+                        &lt;td&gt;City identifier&lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/tbody&gt;
+            &lt;/table&gt;
+            &lt;h4&gt;Query Parameters&lt;/h4&gt;
+            &lt;table class="table table-striped"&gt;
+                &lt;thead&gt;
+                    &lt;tr&gt;
+                        &lt;th&gt;Parameter&lt;/th&gt;
+                        &lt;th&gt;Type&lt;/th&gt;
+                        &lt;th&gt;Default&lt;/th&gt;
+                        &lt;th&gt;Description&lt;/th&gt;
+                    &lt;/tr&gt;
+                &lt;/thead&gt;
+                &lt;tbody&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;&lt;code&gt;start_date&lt;/code&gt;&lt;/td&gt;
+                        &lt;td&gt;string&lt;/td&gt;
+                        &lt;td&gt;90 days ago&lt;/td&gt;
+                        &lt;td&gt;Start of analysis period&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;&lt;code&gt;end_date&lt;/code&gt;&lt;/td&gt;
+                        &lt;td&gt;string&lt;/td&gt;
+                        &lt;td&gt;today&lt;/td&gt;
+                        &lt;td&gt;End of analysis period&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;&lt;code&gt;group_by&lt;/code&gt;&lt;/td&gt;
+                        &lt;td&gt;string&lt;/td&gt;
+                        &lt;td&gt;month&lt;/td&gt;
+                        &lt;td&gt;Grouping: day, week, month, quarter&lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/tbody&gt;
+            &lt;/table&gt;
+            &lt;h4&gt;Example Request&lt;/h4&gt;
+            &lt;pre&gt;&lt;code class="language-bash"&gt;curl -X GET "https://api.dataintel.market/v1/permits/san-francisco/stats?group_by=month" \
+  -H "Authorization: Bearer YOUR_API_KEY"&lt;/code&gt;&lt;/pre&gt;
+        &lt;/section&gt;
+
+        &lt;section id="error-handling"&gt;
+            &lt;h2&gt;Error Handling&lt;/h2&gt;
+            &lt;p&gt;Comprehensive error responses with actionable messages:&lt;/p&gt;
+            &lt;pre&gt;&lt;code class="language-json"&gt;{
+  "error": {
+    "code": "invalid_parameter",
+    "message": "The 'city' parameter must be a valid US city name",
+    "param": "city",
+    "docs_url": "https://docs.dataintel.market/errors#invalid_parameter"
+  }
+}&lt;/code&gt;&lt;/pre&gt;
+        &lt;/section&gt;
+
+        &lt;section id="mock-simulator"&gt;
+            &lt;h2&gt;Mock API Simulator&lt;/h2&gt;
+            &lt;p&gt;Test endpoints client-side without a real backend. Enter parameters and simulate requests.&lt;/p&gt;
+            &lt;div class="row"&gt;
+                &lt;div class="col-md-6"&gt;
+                    &lt;h4&gt;Simulate Get Permits by City&lt;/h4&gt;
+                    &lt;form id="mockForm"&gt;
+                        &lt;div class="mb-3"&gt;
+                            &lt;label for="city" class="form-label"&gt;City&lt;/label&gt;
+                            &lt;input type="text" class="form-control" id="city" value="san-francisco" required&gt;
+                        &lt;/div&gt;
+                        &lt;div class="mb-3"&gt;
+                            &lt;label for="limit" class="form-label"&gt;Limit&lt;/label&gt;
+                            &lt;input type="number" class="form-control" id="limit" value="5" min="1" max="100"&gt;
+                        &lt;/div&gt;
+                        &lt;button type="submit" class="btn btn-primary"&gt;Simulate Request&lt;/button&gt;
+                    &lt;/form&gt;
+                &lt;/div&gt;
+                &lt;div class="col-md-6"&gt;
+                    &lt;h4&gt;Response&lt;/h4&gt;
+                    &lt;pre id="mockResponse" class="bg-light p-3 rounded"&gt;Click simulate to see response.&lt;/pre&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
+    &lt;/main&gt;
+
+    &lt;footer class="bg-dark text-white py-4 mt-5"&gt;
+        &lt;div class="container"&gt;
+            &lt;div class="row"&gt;
+                &lt;div class="col-md-3 mb-3"&gt;
+                    &lt;h5&gt;Specialized Data Intelligence API Marketplace&lt;/h5&gt;
+                    &lt;p&gt;Powered by automated data pipelines. Built for developers. Priced for startups.&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class="col-md-3 mb-3"&gt;
+                    &lt;h6&gt;Product&lt;/h6&gt;
+                    &lt;ul class="list-unstyled"&gt;
+                        &lt;li&gt;&lt;a href="#" class="text-white-50"&gt;All Datasets&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="pricing.html" class="text-white-50"&gt;Pricing&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="documentation.html" class="text-white-50"&gt;Documentation&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#" class="text-white-50"&gt;API Status&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#" class="text-white-50"&gt;Changelog&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+                &lt;div class="col-md-3 mb-3"&gt;
+                    &lt;h6&gt;Resources&lt;/h6&gt;
+                    &lt;ul class="list-unstyled"&gt;
+                        &lt;li&gt;&lt;a href="blog.html" class="text-white-50"&gt;Blog&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#" class="text-white-50"&gt;Use Cases&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#" class="text-white-50"&gt;Integration Guides&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="documentation.html" class="text-white-50"&gt;API Reference&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#" class="text-white-50"&gt;SDKs &amp; Libraries&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+                &lt;div class="col-md-3 mb-3"&gt;
+                    &lt;h6&gt;Company&lt;/h6&gt;
+                    &lt;ul class="list-unstyled"&gt;
+                        &lt;li&gt;&lt;a href="#" class="text-white-50"&gt;About Us&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#" class="text-white-50"&gt;Careers&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#contact" class="text-white-50"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#" class="text-white-50"&gt;Privacy Policy&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#" class="text-white-50"&gt;Terms of Service&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;hr&gt;
+            &lt;div class="row"&gt;
+                &lt;div class="col-md-6"&gt;
+                    &lt;p&gt;&lt;small&gt;&amp;copy; 2025 Specialized Data Intelligence API Marketplace. All rights reserved.&lt;/small&gt;&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class="col-md-6 text-md-end"&gt;
+                    &lt;form id="contactForm" class="d-inline"&gt;
+                        &lt;input type="email" class="form-control d-inline-block w-auto me-2" placeholder="Subscribe to newsletter" style="width: 200px;"&gt;
+                        &lt;button type="submit" class="btn btn-outline-light btn-sm"&gt;Subscribe&lt;/button&gt;
+                    &lt;/form&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/footer&gt;
+
+    &lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"&gt;&lt;/script&gt;
+    &lt;script&gt;
+        const mockData = {
+            "data": [
+                {
+                    "id": "SF-2025-00234",
+                    "permit_number": "2025-0234-COM",
+                    "city": "san-francisco",
+                    "status": "issued",
+                    "permit_type": "commercial",
+                    "issue_date": "2025-11-28",
+                    "project_description": "Interior tenant improvement for office space",
+                    "address": {
+                        "street": "123 Market Street",
+                        "city": "San Francisco",
+                        "state": "CA",
+                        "zip": "94103"
+                    },
+                    "valuation": {
+                        "amount": 750000,
+                        "currency": "USD"
+                    }
+                }
+            ],
+            "pagination": {
+                "total": 847,
+                "limit": 5,
+                "offset": 0,
+                "has_more": true
+            },
+            "meta": {
+                "request_id": "mock_req_123",
+                "processing_time_ms": 50
+            }
+        };
+
+        document.getElementById('mockForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const city = document.getElementById('city').value;
+            const limit = document.getElementById('limit').value || 5;
+            mockData.pagination.limit = parseInt(limit);
+            mockData.data[0].city = city;
+            document.getElementById('mockResponse').textContent = JSON.stringify(mockData, null, 2);
+        });
+
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Subscribed to newsletter!');
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
